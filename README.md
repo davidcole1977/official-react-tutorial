@@ -2,5 +2,8 @@
 
 ```shell
 npm install
-node ./server.js
+npm run build
+npm run start
+
+# web page served at localhost:3000
 ```
