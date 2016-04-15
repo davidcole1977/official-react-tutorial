@@ -29,6 +29,7 @@
   },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha ./src/**/*.test.js --compilers js:babel-register",
+    "test:watch": "npm run test -- --watch",
     "start": "node server.js",
     "build": "webpack --progress --colors --watch --display-error-details",
     "lint": "eslint ./src/*.js ./src/**/*.js"
