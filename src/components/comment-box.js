@@ -19,6 +19,8 @@ export class CommentBox extends React.Component {
         }
       ]
     };
+
+    this.pollingInterval = null;
   }
 
   loadCommentsFromServer() {
@@ -58,7 +60,11 @@ export class CommentBox extends React.Component {
 
   componentDidMount() {
     this.loadCommentsFromServer();
-    setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+    this.pollingInterval = setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+  }
+
+  componentWillUnMount() {
+    clearInterval(this.pollingInterval);
   }
 
   render() {
