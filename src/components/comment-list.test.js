@@ -1,7 +1,7 @@
 import React from 'react';
-import {createRenderer} from 'react-addons-test-utils';
 import chai from 'chai';
 import equalJSX from 'chai-equal-jsx';
+import { shallow as shallowRender } from 'enzyme';
 
 import {CommentList} from './comment-list';
 import {Comment} from './comment';
@@ -11,7 +11,6 @@ const expect = chai.expect;
 
 describe('<CommentList />', () => {
 	it('renders a comment list', () => {
-		const renderer = createRenderer();
     const data = [
       {
         author: 'author name',
@@ -30,11 +29,7 @@ describe('<CommentList />', () => {
       }
     ];
 
-		renderer.render(<CommentList data={data} />);
-
-		const actualElement = renderer.getRenderOutput();
-
-		const expectedElement = (
+    const expectedElement = (
       <div className="commentList">
         <Comment author="author name">
           this is a comment
@@ -48,6 +43,9 @@ describe('<CommentList />', () => {
       </div>
     );
 
-    expect(actualElement).to.equalJSX(expectedElement);
+    const wrapper = shallowRender(<CommentList data={data} />);
+    const renderedElement = wrapper.get(0);
+
+    expect(renderedElement).to.equalJSX(expectedElement);
 	});
 });

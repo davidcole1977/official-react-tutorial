@@ -6,24 +6,15 @@ export function transformMarkdown(markdown) {
   return { __html: rawMarkup };
 }
 
-export const Comment = React.createClass({
-  rawMarkup() {
-    const rawMarkup = marked(this.props.children.toString(), {sanitize: true});
-    return { __html: rawMarkup };
-  },
+export function Comment(props) {
+  const {children, author} = props;
 
-  transformMarkdown,
-
-  render() {
-    return (
-      <div className="comment">
-        <h2 className="commentAuthor">
-          {this.props.author}
-        </h2>
-        <span dangerouslySetInnerHTML={this.rawMarkup()} />
-        <span dangerouslySetInnerHTML={this.transformMarkdown(this.props.children.toString())} />
-        <span dangerouslySetInnerHTML={transformMarkdown(this.props.children.toString())} />
-      </div>
-    );
-  }
-});
+  return (
+    <div className="comment">
+      <h2 className="commentAuthor">
+        {author}
+      </h2>
+      <span dangerouslySetInnerHTML={transformMarkdown(children.toString())} />
+    </div>
+  );
+}

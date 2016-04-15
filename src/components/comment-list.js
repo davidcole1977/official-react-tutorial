@@ -1,19 +1,20 @@
 import React from 'react';
 import {Comment} from './comment';
 
-export const CommentList = React.createClass({
-  render() {
-    const commentNodes = this.props.data.map(function(comment) {
-      return (
-        <Comment author={comment.author} key={comment.id}>
-          {comment.text}
-        </Comment>
-      );
-    });
-    return (
-      <div className="commentList">
-        {commentNodes}
-      </div>
-    );
-  }
-});
+export function CommentList(props) {
+	const {data} = props;
+
+  const commentNodes = data.map(function(comment) {
+		return (
+			<Comment author={comment.author} key={comment.id}>
+				{comment.text}
+			</Comment>
+		);
+	});
+
+	return (
+		<div className="commentList">
+			{commentNodes}
+		</div>
+	);
+}
