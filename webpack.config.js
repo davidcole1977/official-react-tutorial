@@ -1,8 +1,5 @@
 module.exports = {
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
-  entry: './src/client.jsx',
+  entry: './src/client.js',
   output: {
     filename: './public/scripts/client.js'
   },
@@ -11,7 +8,7 @@ module.exports = {
     loaders: [
       {
         loader: 'babel-loader',
-        test: /.jsx?$/,
+        test: /.js?$/,
         query: {
           presets: ['es2015', 'react']
         }

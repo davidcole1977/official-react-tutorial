@@ -62,8 +62,8 @@ describe('<CommentForm />', () => {
 			wrapper.setState(commentData);
 
 			wrapper.simulate('submit', fakeSubmitEvent);
-			expect(wrapper.state('author')).to.be.empty
-			expect(wrapper.state('text')).to.be.empty
+			expect(wrapper.state('author')).to.be.empty;
+			expect(wrapper.state('text')).to.be.empty;
 		});
 	});
 

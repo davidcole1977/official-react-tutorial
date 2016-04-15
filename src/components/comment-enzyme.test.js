@@ -4,7 +4,7 @@ import equalJSX from 'chai-equal-jsx';
 import { shallow as shallowRender } from 'enzyme';
 
 import {Comment, transformMarkdown} from './comment';
-import {scenarios} from './comment.fixtures.jsx';
+import {scenarios} from './comment.fixtures';
 
 chai.use(equalJSX);
 const expect = chai.expect;
