@@ -1,17 +1,26 @@
 import React from 'react';
 
-export const CommentForm = React.createClass({
-  getInitialState() {
-    return {author: '', text: ''};
-  },
+export class CommentForm extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.handleAuthorChange = this.handleAuthorChange.bind(this);
+		this.handleTextChange = this.handleTextChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+
+		this.state = {
+			author: '',
+			text: ''
+		};
+	}
 
   handleAuthorChange(e) {
     this.setState({author: e.target.value});
-  },
+  }
 
   handleTextChange(e) {
     this.setState({text: e.target.value});
-  },
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -22,7 +31,7 @@ export const CommentForm = React.createClass({
     }
     this.props.onCommentSubmit({author, text});
     this.setState({author: '', text: ''});
-  },
+  }
 
   render() {
     return (
@@ -43,4 +52,4 @@ export const CommentForm = React.createClass({
       </form>
     );
   }
-});
+}
