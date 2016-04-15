@@ -3,7 +3,7 @@ import chai from 'chai';
 import equalJSX from 'chai-equal-jsx';
 import { shallow as shallowRender } from 'enzyme';
 
-import {Comment, transformMarkdown} from './comment';
+import {Comment} from './comment';
 import {scenarios} from './comment.fixtures';
 
 chai.use(equalJSX);

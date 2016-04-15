@@ -1,30 +1,30 @@
 import React from 'react';
 
 export const CommentForm = React.createClass({
-  getInitialState: function() {
+  getInitialState() {
     return {author: '', text: ''};
   },
 
-  handleAuthorChange: function(e) {
+  handleAuthorChange(e) {
     this.setState({author: e.target.value});
   },
 
-  handleTextChange: function(e) {
+  handleTextChange(e) {
     this.setState({text: e.target.value});
   },
 
-  handleSubmit: function(e) {
+  handleSubmit(e) {
     e.preventDefault();
-    var author = this.state.author.trim();
-    var text = this.state.text.trim();
+    const author = this.state.author.trim();
+    const text = this.state.text.trim();
     if (!text || !author) {
       return;
     }
-    this.props.onCommentSubmit({author: author, text: text});
+    this.props.onCommentSubmit({author, text});
     this.setState({author: '', text: ''});
   },
 
-  render: function() {
+  render() {
     return (
       <form className="commentForm" onSubmit={this.handleSubmit}>
         <input

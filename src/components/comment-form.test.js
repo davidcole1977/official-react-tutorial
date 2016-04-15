@@ -1,5 +1,4 @@
 import React from 'react';
-import {createRenderer} from 'react-addons-test-utils';
 import chai from 'chai';
 import equalJSX from 'chai-equal-jsx';
 import { shallow as shallowRender } from 'enzyme';
@@ -34,7 +33,7 @@ describe('<CommentForm />', () => {
 			const submitHandlerSpy = sinon.spy();
 			const wrapper = shallowRender(<CommentForm onCommentSubmit={submitHandlerSpy} />);
 			const fakeSubmitEvent = {
-				preventDefault: function() {}
+				preventDefault() {}
 			};
 			const commentData = {
 				author: 'Winnie',
@@ -52,7 +51,7 @@ describe('<CommentForm />', () => {
 			const submitHandlerSpy = sinon.spy();
 			const wrapper = shallowRender(<CommentForm onCommentSubmit={submitHandlerSpy} />);
 			const fakeSubmitEvent = {
-				preventDefault: function() {}
+				preventDefault() {}
 			};
 			const commentData = {
 				author: 'Winnie',
@@ -66,6 +65,4 @@ describe('<CommentForm />', () => {
 			expect(wrapper.state('text')).to.be.empty;
 		});
 	});
-
-	
 });

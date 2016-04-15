@@ -48,14 +48,14 @@ describe('<Comment />', () => {
 		describe('pure methods', () => {
 			describe('#transformMarkdown', () => {
 				it('returns a dangerousInnerHTMLObject', () => {
-					var markdown = 'this is my markdown';
+					const markdown = 'this is my markdown';
 					expect(transformMarkdown(markdown).__html).to.contain('<p>this is my markdown</p>');
 				});
 			});
 
 			describe('#this.transformMarkdown', () => {
 				it('returns a dangerousInnerHTMLObject', () => {
-					var markdown = 'this is my markdown';
+					const markdown = 'this is my markdown';
 					expect(Comment.prototype.transformMarkdown(markdown).__html).to.contain('<p>this is my markdown</p>');
 				});
 			});

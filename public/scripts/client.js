@@ -20048,11 +20048,9 @@
 	
 	var CommentBox = exports.CommentBox = _react2.default.createClass({
 	  displayName: 'CommentBox',
-	
 	  getInitialState: function getInitialState() {
-	    return { data: [{ id: 0, author: "comments are loading", text: "please be patient..." }] };
+	    return { data: [{ id: 0, author: 'comments are loading', text: 'please be patient...' }] };
 	  },
-	
 	  loadCommentsFromServer: function loadCommentsFromServer() {
 	    _jquery2.default.ajax({
 	      url: this.props.url,
@@ -20066,7 +20064,6 @@
 	      }.bind(this)
 	    });
 	  },
-	
 	  handleCommentSubmit: function handleCommentSubmit(comment) {
 	    var comments = this.state.data;
 	    // Optimistically set an id on the new comment. It will be replaced by an
@@ -20090,12 +20087,10 @@
 	      }.bind(this)
 	    });
 	  },
-	
 	  componentDidMount: function componentDidMount() {
 	    this.loadCommentsFromServer();
 	    setInterval(this.loadCommentsFromServer, this.props.pollInterval);
 	  },
-	
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
@@ -21747,7 +21742,6 @@
 	
 	var CommentList = exports.CommentList = _react2.default.createClass({
 	  displayName: 'CommentList',
-	
 	  render: function render() {
 	    var commentNodes = this.props.data.map(function (comment) {
 	      return _react2.default.createElement(
@@ -21793,11 +21787,11 @@
 	
 	var Comment = exports.Comment = _react2.default.createClass({
 	  displayName: 'Comment',
-	
 	  rawMarkup: function rawMarkup() {
 	    var rawMarkup = (0, _marked2.default)(this.props.children.toString(), { sanitize: true });
 	    return { __html: rawMarkup };
 	  },
+	
 	
 	  transformMarkdown: transformMarkdown,
 	
@@ -23025,19 +23019,15 @@
 	
 	var CommentForm = exports.CommentForm = _react2.default.createClass({
 	  displayName: 'CommentForm',
-	
 	  getInitialState: function getInitialState() {
 	    return { author: '', text: '' };
 	  },
-	
 	  handleAuthorChange: function handleAuthorChange(e) {
 	    this.setState({ author: e.target.value });
 	  },
-	
 	  handleTextChange: function handleTextChange(e) {
 	    this.setState({ text: e.target.value });
 	  },
-	
 	  handleSubmit: function handleSubmit(e) {
 	    e.preventDefault();
 	    var author = this.state.author.trim();
@@ -23048,7 +23038,6 @@
 	    this.props.onCommentSubmit({ author: author, text: text });
 	    this.setState({ author: '', text: '' });
 	  },
-	
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'form',
